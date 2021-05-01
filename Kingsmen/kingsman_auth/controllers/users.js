@@ -9,6 +9,12 @@ const User = require('../models/user.js');
 router.get('/new', (req,res)=>{
     res.render('users/new.ejs')
 })
-
+//Post - New User
+router.post('/',(req,res)=>{
+//    res.send('testing')
+    User.create(req.body,(error, createdLog) =>{
+        res.redirect('/');
+    })
+})
 // EXPORT
 module.exports = router;
