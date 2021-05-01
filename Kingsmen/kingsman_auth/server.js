@@ -6,6 +6,9 @@ const session = require('express-session');
 const methodOverride = require('method-override');
 const bcrypt = require('bcrypt');
 const port = 3000;
+const User = require('./models/user.js');
+
+
 
 
 // MIDDLEWARE
@@ -21,6 +24,9 @@ app.use(express.static('public'))
 const roomController = require('./controllers/room.js');
 app.use('/room', roomController);
 
+//Create a New Users
+const usersController = require('./controllers/users.js');
+app.use('/users', usersController);
 
 // GET INDEX
 app.get('/', (req, res) => {
